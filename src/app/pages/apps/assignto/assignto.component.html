@@ -1,32 +1,31 @@
 <h5 class="ml-3 mt-3">
-    <strong>ASSIGN PLAN</strong>
-  </h5>
-  <!-- <div *ngIf="isRepay" class="card"> -->
+  <strong>ASSIGN PLAN</strong>
+</h5>
+<!-- <div *ngIf="isRepay" class="card"> -->
 <div class="card-body">
-    <div class="form-group row ">
-        <label class="col-md-3 col-form-label" for="baseFullname"><strong>Select Group</strong>
-            <span style="color: red;">*</span></label>
-          <ng-template class="w-100" #cct let-qc="result" let-qt="term">
-            <ngb-highlight [result]="qc.name" [term]="qt"></ngb-highlight>
-          </ng-template>
-          <div class="col-md-3">
-            <input id="contact" #contactautocomplete  type="text" class="form-control"
-              placeholder="Select Group" (keyup.enter)="clickrepaytable()"/>
-          </div>
-
-        <label class="col-md-3 col-form-label" for="baseFullname"><strong>Search Contact</strong>
-          <span style="color: red;">*</span></label>
-        <ng-template class="w-100" #cct let-qc="result" let-qt="term">
-          <ngb-highlight [result]="qc.name" [term]="qt"></ngb-highlight>
-        </ng-template>
-        <div class="col-md-3">
-          <input id="contact" #contactautocomplete  type="text" class="form-control"
-            placeholder="Search Contact"/>
-        </div>
+  <div class="form-group row ">
+    <label class="col-md-3 col-form-label" for="baseFullname"><strong>Select Group</strong>
+      <span style="color: red;">*</span></label>
+    <ng-template class="w-100" #cct let-qc="result" let-qt="term">
+      <ngb-highlight [result]="qc.name" [term]="qt"></ngb-highlight>
+    </ng-template>
+    <div class="col-md-3">
+      <input id="contact" #contactautocomplete type="text" class="form-control" placeholder="Select Group"
+        (keyup.enter)="clickrepaytable()" />
     </div>
+
+    <label class="col-md-3 col-form-label" for="baseFullname"><strong>Search Contact</strong>
+      <span style="color: red;">*</span></label>
+    <ng-template class="w-100" #cct let-qc="result" let-qt="term">
+      <ngb-highlight [result]="qc.name" [term]="qt"></ngb-highlight>
+    </ng-template>
+    <div class="col-md-3">
+      <input id="contact" #contactautocomplete type="text" class="form-control" placeholder="Search Contact" />
+    </div>
+  </div>
 </div>
 <div class="card">
-    <div class="row">
+  <div class="row">
     <div class="col-md-9">
       <div class="card">
         <div class="row">
@@ -35,9 +34,10 @@
               <div class="card-body">
                 <div class="pt-5 pb-5 pl-5 pr-5 text-center flex-grow-1">
                   <i class="fe fe-cpu font-size-80 mb-3 d-block"></i>
-                  <div class="text-dark font-weight-bold font-size-36">Standart</div>
+                  <div class="text-dark font-weight-bold font-size-36">PLAN 1 L</div>
                   <div class="text-dark font-weight-bold font-size-48 mb-3">
-                    $49 <span class="align-text-top font-size-28 text-gray-6">/mo</span>
+                    100000 Rs
+                    <!-- <span class="align-text-top font-size-28 text-gray-6">/mo</span> -->
                   </div>
                   <!-- <ul class="list-unstyled font-size-18 mb-5">
                     <li>20GB of Bandwidth</li>
@@ -50,36 +50,16 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-4">
-              <div class="card bg-light">
-                <div class="card-body">
-                  <div class="pt-5 pb-5 pl-5 pr-5 text-center flex-grow-1">
-                    <i class="fe fe-cpu font-size-80 mb-3 d-block"></i>
-                    <div class="text-dark font-weight-bold font-size-36">Standart</div>
-                    <div class="text-dark font-weight-bold font-size-48 mb-3">
-                      $49 <span class="align-text-top font-size-28 text-gray-6">/mo</span>
-                    </div>
-                    <!-- <ul class="list-unstyled font-size-18 mb-5">
-                      <li>20GB of Bandwidth</li>
-                      <li>400MB Max File Size</li>
-                      <li>2GHZ CPU</li>
-                      <li>512MB Memory</li>
-                      <li>2 GB Storage</li>
-                    </ul> -->
-                    <a class="btn btn-primary width-100" href="javascript: void(0);">Get Access</a>
-                  </div>
-                </div>
-              </div>
           </div>
           <div class="col-lg-4">
             <div class="card bg-light">
               <div class="card-body">
                 <div class="pt-5 pb-5 pl-5 pr-5 text-center flex-grow-1">
                   <i class="fe fe-cpu font-size-80 mb-3 d-block"></i>
-                  <div class="text-dark font-weight-bold font-size-36">Standart</div>
+                  <div class="text-dark font-weight-bold font-size-36">PLAN 1 L</div>
                   <div class="text-dark font-weight-bold font-size-48 mb-3">
-                    $49 <span class="align-text-top font-size-28 text-gray-6">/mo</span>
+                    100000 Rs
+                    <!-- <span class="align-text-top font-size-28 text-gray-6">/mo</span> -->
                   </div>
                   <!-- <ul class="list-unstyled font-size-18 mb-5">
                     <li>20GB of Bandwidth</li>
@@ -92,32 +72,76 @@
                 </div>
               </div>
             </div>
-        </div>
-        </div>
-      </div>
-      </div>
-      <div class="col-md-3 pull-right">
-          <div class="card">
-            <ul>
-                <li>Amount Range</li>
-                <ul>
-                    <a href=""><li>10,000 to 20,000</li></a> 
-                    <a href=""><li>20,000 to 30,000</li></a>    
-                    <a href=""><li>40,000 to 50,000</li></a>                  
-                </ul>
-            </ul>
-            <ul>
-                <a href=""><li>1 Lakh</li></a> 
-                <a href=""><li>2 Lakh</li></a> 
-                <a href=""><li>3 Lakh</li></a> 
-                <a href=""><li>4 Lakh</li></a> 
-                <a href=""><li>1 Lakh</li></a> 
-                <a href=""><li>2 Lakh</li></a> 
-                <a href=""><li>3 Lakh</li></a> 
-                <a href=""><li>4 Lakh</li></a> 
-            </ul>
           </div>
-          <!-- <form nz-form [formGroup]="validateForm1">
+          <div class="col-lg-4">
+            <div class="card bg-light">
+              <div class="card-body">
+                <div class="pt-5 pb-5 pl-5 pr-5 text-center flex-grow-1">
+                  <i class="fe fe-cpu font-size-80 mb-3 d-block"></i>
+                  <div class="text-dark font-weight-bold font-size-36">PLAN 1 L</div>
+                  <div class="text-dark font-weight-bold font-size-48 mb-3">
+                    100000 Rs
+                    <!-- <span class="align-text-top font-size-28 text-gray-6">/mo</span> -->
+                  </div>
+                  <!-- <ul class="list-unstyled font-size-18 mb-5">
+                    <li>20GB of Bandwidth</li>
+                    <li>400MB Max File Size</li>
+                    <li>2GHZ CPU</li>
+                    <li>512MB Memory</li>
+                    <li>2 GB Storage</li>
+                  </ul> -->
+                  <a class="btn btn-primary width-100" href="javascript: void(0);">Get Access</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 pull-right">
+      <div class="card">
+        <ul>
+          <li>Amount Range</li>
+          <ul>
+            <a href="">
+              <li>10,000 to 20,000</li>
+            </a>
+            <a href="">
+              <li>20,000 to 30,000</li>
+            </a>
+            <a href="">
+              <li>40,000 to 50,000</li>
+            </a>
+          </ul>
+        </ul>
+        <ul>
+          <a href="">
+            <li>1 Lakh</li>
+          </a>
+          <a href="">
+            <li>2 Lakh</li>
+          </a>
+          <a href="">
+            <li>3 Lakh</li>
+          </a>
+          <a href="">
+            <li>4 Lakh</li>
+          </a>
+          <a href="">
+            <li>1 Lakh</li>
+          </a>
+          <a href="">
+            <li>2 Lakh</li>
+          </a>
+          <a href="">
+            <li>3 Lakh</li>
+          </a>
+          <a href="">
+            <li>4 Lakh</li>
+          </a>
+        </ul>
+      </div>
+      <!-- <form nz-form [formGroup]="validateForm1">
             <nz-form-item>
               <nz-form-label [nzSm]="4" [nzXs]="24" class="text-left">Budget</nz-form-label>
               <nz-form-control [nzSm]="2" [nzXs]="24">
@@ -125,6 +149,6 @@
               </nz-form-control>
             </nz-form-item>
           </form> -->
-        </div>
     </div>
+  </div>
 </div>
