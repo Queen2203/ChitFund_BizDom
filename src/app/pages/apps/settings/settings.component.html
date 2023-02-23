@@ -1,0 +1,35 @@
+<ngb-tabset >
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            Printer Settings
+        </ng-template>
+        <ng-template ngbTabContent>
+            <div class="p-4 mt-4">
+                <div class="col-xl-12 row mb-5">
+                    <div class="col-xl-8">
+                        <strong>No. of characters: </strong>
+                        <input type="text" placeholder="default is 47 for 80mm (3 inch) printer" class="form-control"
+                            [(ngModel)]="printersettings.charcount">
+                    </div>
+                    <div class="col-xl-4">
+                        <button type="button" class="btn btn-success pull-right"
+                            (click)="saveprintersettings()">Save</button>
+                    </div>
+                </div>
+                <ngb-tabset type="pills">
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>
+                            Receipt
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>
+                            KOT
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+               
+            </div>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>

@@ -1,0 +1,50 @@
+<h5 class="mb-4">
+    <strong>Test Table</strong>
+</h5>
+<button type="button" class="btn btn-success mr-2 mb-2" (click)="openCustomClass(vertical)">+ Add</button>
+<div class="mb-5">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">SI.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Address</th>
+          <th scope="col">PhoneNumber</th>
+          <th scope="col">PIN Code</th>
+          <th scope="col">Edit</th>
+        </tr>
+      </thead>
+      <!-- <tbody>
+        <tr *ngFor="let country of countries; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            {{ country.name }}
+          </td>
+          <td>{{ country.area | number }}</td>
+          <td>{{ country.population | number }}</td>
+        </tr>
+      </tbody> -->
+    </table>
+</div>
+
+<ng-template #vertical let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title">Add Data</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Save click')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+ 

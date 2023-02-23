@@ -1,0 +1,141 @@
+<!-- Index -->
+<div class="row" *ngIf="isIndex">
+    <div class="col-md-6 " style="margin-top: 10%;">
+      <div class="card"  style="text-align: center;">
+        <!-- <button type="button" class="btn btn-primary" (click)="clickpay(0)">Add Contact</button> -->
+        <h4><strong>ADD CONTACT</strong></h4>
+        <div class="card-body" style="text-align: center;">
+          <a (click)="clickpay(0)" href="javascript: void(0);" class="btn btn-sm btn-light ">
+            <i class="fe fa-5x classes fe-plus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6" style="margin-top: 10%;">
+      <div class="card"style="text-align: center;">
+        <h4><strong>SEARCH CONTACT</strong></h4>
+        <div class="card-body" style="text-align: center;">
+          <a (click)="clickrepay(0)" href="javascript: void(0);" class="btn btn-sm btn-light ">
+            <i class="fa fa-5x classes fa-search"></i>
+          </a>
+        </div>
+        <!-- <button type="button" class="btn btn-primary" (click)="clickrepay(0)">Search Contact</button> -->
+      </div>
+    </div>
+</div>
+
+<!-- Add Contact -->
+<div class="card" *ngIf="isAdd">
+    <h5 class="ml-3 mt-3">
+        <strong >Add Contact</strong>
+      </h5>
+    <div class="card-body">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="baseFullname"><strong>Name</strong></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control"
+              placeholder="Enter Name" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"> <strong>Address</strong> </label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Enter Address" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"><strong>City</strong></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Enter City" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"><strong>Phone Number</strong></label>
+          <div class="col-md-6">
+            <input type="number" class="form-control"  placeholder="Enter Phone Number" />
+          </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label"><strong>Group Name</strong></label>
+            <div class="col-md-6">
+              <input type="text" class="form-control"  placeholder="Choose Group" />
+            </div>
+          </div>
+        <button type="button" class="btn btn-secondary px-5" (click)="clickpay(1)">
+          <i nz-icon nzType="left"></i>Back</button>
+        <button type="button" class="btn btn-success px-5 pull-right" (click)="addTax()">Save</button>
+      </div>
+</div>
+
+<!-- Search Contact -->
+<div class="card-body" *ngIf="issearch">
+    <div class="cui__utils__heading" *ngIf="issearch">
+        <strong>Contacts</strong>
+        <button  class="btn btn-secondary px-5 pull-right" (click)="clickrepay(1)">
+            Back
+        </button>
+    </div>
+    <div class="card" *ngIf="issearch">
+        <div class="card-header card-header-flex">
+          <div class="d-flex flex-column justify-content-center mr-auto">
+            <!-- <select class="form-control" [(ngModel)]="billstatusid" (ngModelChange)="BillstsId()">
+                <option value=null disabled><strong>Select Group</strong></option>
+                <option *ngFor="let pcat of BillStatus" value="{{pcat.id}}">{{pcat.status}}</option>
+            </select> -->
+            <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+              <input type="text" nz-input placeholder="Search Contact"  [(ngModel)]="term" (input)="filtersearch()"/>
+            </nz-input-group>
+            <ng-template #suffixIconButton>
+              <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+            </ng-template>
+          </div>
+          <div class="col-xl-2 pt-3">
+            <select class="form-control" [(ngModel)]="billstatusid" (ngModelChange)="BillstsId()">
+                <option value=null disabled><strong>Select Group</strong></option>
+                <option *ngFor="let pcat of BillStatus" value="{{pcat.id}}">{{pcat.status}}</option>
+            </select>
+          </div>
+        </div>
+        <!-- Tax Grp Table -->
+        <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small" [nzData]="tabledata" *ngIf="issearch">
+          <thead>
+            <tr>
+              <th><strong>Name</strong>
+              </th>
+              <th><strong>Address</strong>
+              </th>
+              <th><strong>City</strong>
+              </th>
+              <th><strong>Phone Number</strong>
+              </th>
+              <th><strong>Group Name</strong>
+              </th>
+              <th><strong>Action</strong>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tax of basicTable.data ">
+              <td>
+                <a class="btn btn-sm btn-light kit__utils__donut--primary" (click)="editTaxgroup(tax)">
+                  {{tax.description}}
+                </a>
+              </td>
+              <td>
+                {{tax.tax1}}
+              </td>
+              <td>
+                {{tax.tax2}}
+              </td>
+              <td>
+                {{tax.tax3}}
+              </td>
+              <td>
+                <span *ngIf="tax.isInclusive" class="text-success">YES</span>
+                <span *ngIf="!tax.isInclusive" class="text-danger">NO</span>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+</div>
