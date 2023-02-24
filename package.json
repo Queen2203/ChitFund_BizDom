@@ -17,7 +17,8 @@
     "stylelint": "stylelint \"src/**/*.{scss,less}\"",
     "postinstall": "ngcc",
     "start:electron": "ng build --base-href ./ && electron .",
-    "run:electron": "electron ."
+    "run:electron": "electron .",
+    "heroku-postbuild": "ng build"
   },
   "husky": {
     "hooks": {
