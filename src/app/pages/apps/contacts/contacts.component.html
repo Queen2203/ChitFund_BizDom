@@ -63,7 +63,7 @@
           </div>
         <button type="button" class="btn btn-secondary px-5" (click)="clickpay(1)">
           <i nz-icon nzType="left"></i>Back</button>
-        <button type="button" class="btn btn-success px-5 pull-right" (click)="addTax()">Save</button>
+        <button type="button" class="btn btn-success px-5 pull-right">Save</button>
       </div>
 </div>
 
@@ -83,7 +83,7 @@
                 <option *ngFor="let pcat of BillStatus" value="{{pcat.id}}">{{pcat.status}}</option>
             </select> -->
             <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-              <input type="text" nz-input placeholder="Search Contact"  [(ngModel)]="term" (input)="filtersearch()"/>
+              <input type="text" nz-input placeholder="Search Contact" />
             </nz-input-group>
             <ng-template #suffixIconButton>
               <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
@@ -97,7 +97,7 @@
           </div>
         </div>
         <!-- Tax Grp Table -->
-        <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small" [nzData]="tabledata" *ngIf="issearch">
+        <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small" *ngIf="issearch">
           <thead>
             <tr>
               <th><strong>Name</strong>

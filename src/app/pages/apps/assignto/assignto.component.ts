@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-assignto',
   templateUrl: './assignto.component.html',
-  styleUrls: ['./assignto.component.scss']
+  styleUrls: ['./assignto.component.scss'],
 })
 export class AssigntoComponent implements OnInit {
-
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   marks = {
     0: '0',
@@ -32,7 +31,7 @@ export class AssigntoComponent implements OnInit {
         this.validateForm1.controls[i].updateValueAndValidity()
       }
     }
-  } 
+  }
   ngOnInit(): void {
     this.validateForm1 = this.fb.group({
       fullName: [null, [Validators.required]],
@@ -45,4 +44,3 @@ export class AssigntoComponent implements OnInit {
     })
   }
 }
- 

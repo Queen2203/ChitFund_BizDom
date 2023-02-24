@@ -7,7 +7,7 @@
         <div class="card-header card-header-flex">
           <div class="d-flex flex-column justify-content-center mr-auto">
             <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-              <input type="text" nz-input placeholder="input search text"  [(ngModel)]="term" (input)="filtersearch()"/>
+              <input type="text" nz-input placeholder="input search text" >
             </nz-input-group>
             <ng-template #suffixIconButton>
               <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
@@ -20,7 +20,7 @@
           </div>
         </div>
         <!-- Tax Grp Table -->
-        <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small" [nzData]="tabledata">
+        <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small">
           <thead>
             <tr>
               <!-- <th><strong>Group Name</strong>
@@ -93,7 +93,7 @@
         </div>
         <button type="button" class="btn btn-secondary px-5" (click)="back()">
           <i nz-icon nzType="left"></i>Back</button>
-        <button type="button" class="btn btn-success px-5 pull-right" (click)="addTax()">Save</button>
+        <button type="button" class="btn btn-success px-5 pull-right">Save</button>
       </div>
     </div>
   </div>
