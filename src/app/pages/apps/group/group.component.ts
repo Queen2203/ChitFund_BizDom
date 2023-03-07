@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { AuthService } from 'src/app/auth.service'
 
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
-  styleUrls: ['./group.component.scss']
+  styleUrls: ['./group.component.scss'],
 })
 export class GroupComponent implements OnInit {
-
   CompanyId: any
   StoreId: any
   loginfo: any
@@ -19,10 +19,10 @@ export class GroupComponent implements OnInit {
     name: '',
     address: '',
     city: '',
-    phoneNumber: 0
+    phoneNumber: 0,
   }
 
-  constructor() { }
+  constructor(private auth: AuthService) {}
 
   ngOnInit(): void {
     this.group = {
@@ -31,8 +31,9 @@ export class GroupComponent implements OnInit {
       Name: '',
       Address: '',
       City: '',
-      PhoneNumber: 0
+      PhoneNumber: 0,
     }
+    this.getgroup()
   }
 
   editTaxgroup(group) {
@@ -53,5 +54,11 @@ export class GroupComponent implements OnInit {
       isInclusive: false,
     }
   }
-
+  contact: any
+  getgroup() {
+    this.auth.Getparentcontact().subscribe(data => {
+      this.contact = data
+      console.log(this.contact)
+    })
+  }
 }

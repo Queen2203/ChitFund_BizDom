@@ -20,7 +20,7 @@
           </div>
         </div>
         <!-- Tax Grp Table -->
-        <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small">
+        <nz-table #basicTable [nzData]="user" class="kit__utils__table mb-4" nzSize="small">
           <thead>
             <tr>
               <!-- <th><strong>Group Name</strong>
@@ -31,29 +31,31 @@
               </th>
               <th><strong>Phone Number</strong>
               </th>
+              <th><strong>Role</strong>
+              </th>
               <th><strong>Action</strong>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let tax of basicTable.data ">
+            <tr *ngFor="let user of basicTable.data ">
               <td>
-                <a class="btn btn-sm btn-light kit__utils__donut--primary" (click)="editTaxgroup(tax)">
-                  {{tax.description}}
-                </a>
+                  {{user.name}}
               </td>
               <td>
-                {{tax.tax1}}
+                {{user.address}}
               </td>
               <td>
-                {{tax.tax2}}
+                {{user.phoneNumber}}
               </td>
               <td>
-                {{tax.tax3}}
+                {{user.role}}
               </td>
               <td>
-                <span *ngIf="tax.isInclusive" class="text-success">YES</span>
-                <span *ngIf="!tax.isInclusive" class="text-danger">NO</span>
+                <a href="javascript: void(0);"
+                class="btn btn-sm btn-light pull-left" slot="actions" style="color: blue;">
+                <i class="fe fa-lg fe-edit"></i>
+               </a>
               </td>
             </tr>
           </tbody>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { AuthService } from 'src/app/auth.service'
 
 @Component({
   selector: 'app-assignto',
@@ -7,7 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./assignto.component.scss'],
 })
 export class AssigntoComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+  CompanyId = 1
+
+  constructor(private fb: FormBuilder, private auth: AuthService) {}
 
   marks = {
     0: '0',
@@ -41,6 +44,15 @@ export class AssigntoComponent implements OnInit {
     this.validateForm2 = this.fb.group({
       amount: [null, [Validators.required]],
       pin: [null, [Validators.required]],
+    })
+    this.getplans()
+  }
+
+  plans: any
+  getplans() {
+    this.auth.Getplans(this.CompanyId).subscribe(data => {
+      this.plans = data
+      console.log(this.plans)
     })
   }
 }

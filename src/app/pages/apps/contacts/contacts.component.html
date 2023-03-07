@@ -90,14 +90,14 @@
             </ng-template>
           </div>
           <div class="col-xl-2 pt-3">
-            <select class="form-control" [(ngModel)]="billstatusid" (ngModelChange)="BillstsId()">
+            <select class="form-control" [(ngModel)]="groupId" (ngModelChange)="BillstsId()">
                 <option value=null disabled><strong>Select Group</strong></option>
                 <option *ngFor="let pcat of BillStatus" value="{{pcat.id}}">{{pcat.status}}</option>
             </select>
           </div>
         </div>
         <!-- Tax Grp Table -->
-        <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small" *ngIf="issearch">
+        <nz-table #basicTable [nzData]="contact" class="kit__utils__table mb-4" nzSize="small" *ngIf="issearch">
           <thead>
             <tr>
               <th><strong>Name</strong>
@@ -115,24 +115,27 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let tax of basicTable.data ">
+            <tr *ngFor="let con of basicTable.data ">
               <td>
-                <a class="btn btn-sm btn-light kit__utils__donut--primary" (click)="editTaxgroup(tax)">
-                  {{tax.description}}
-                </a>
+                  {{con.name}}
               </td>
               <td>
-                {{tax.tax1}}
+                {{con.address}}
               </td>
               <td>
-                {{tax.tax2}}
+                {{con.city}}
               </td>
               <td>
-                {{tax.tax3}}
+                {{con.phoneNumber}}
               </td>
               <td>
-                <span *ngIf="tax.isInclusive" class="text-success">YES</span>
-                <span *ngIf="!tax.isInclusive" class="text-danger">NO</span>
+                {{con.groupName}}
+              </td>
+              <td>
+                <a href="javascript: void(0);"
+                class="btn btn-sm btn-light pull-left" slot="actions" style="color: blue;">
+                <i class="fe fa-lg fe-edit"></i>
+               </a>
               </td>
             </tr>
           </tbody>

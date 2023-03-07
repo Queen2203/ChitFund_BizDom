@@ -1,37 +1,84 @@
-<!-- <ngb-tabset >
-    <ngb-tab>
-        <ng-template ngbTabTitle>
-            Printer Settings
-        </ng-template>
-        <ng-template ngbTabContent>
-            <div class="p-4 mt-4">
-                <div class="col-xl-12 row mb-5">
-                    <div class="col-xl-8">
-                        <strong>No. of characters: </strong>
-                        <input type="text" placeholder="default is 47 for 80mm (3 inch) printer" class="form-control"
-                            [(ngModel)]="printersettings.charcount">
-                    </div>
-                    <div class="col-xl-4">
-                        <button type="button" class="btn btn-success pull-right"
-                            (click)="saveprintersettings()">Save</button>
-                    </div>
+<div>
+    <nz-tabset class="tabs" [nzSelectedIndex]="0">
+      <nz-tab nzTitle="General Settings" [nzForceRender]="true">
+        <!-- <nz-table #basicTable [nzData]="tableData" [nzShowPagination]="false" class="table mb-4">
+          <thead>
+            <tr>
+              <th class="bg-transparent width-50"></th>
+              <th class="bg-transparent">User Name</th>
+              <th class="bg-transparent">Location</th>
+              <th class="bg-transparent text-right"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of basicTable.data">
+              <td>
+                <div class="kit__utils__avatar">
+                  <img [src]="data.avatar" alt="User" />
                 </div>
-                <ngb-tabset type="pills">
-                    <ngb-tab>
-                        <ng-template ngbTabTitle>
-                            Receipt
-                        </ng-template>
-                    </ngb-tab>
-                    <ngb-tab>
-                        <ng-template ngbTabTitle>
-                            KOT
-                        </ng-template>
-                    </ngb-tab>
-                </ngb-tabset>
-               
-            </div>
+              </td>
+              <td>
+                <div>{{data.userName.name}}</div>
+                <div class="text-gray-4">{{data.userName.position}}</div>
+              </td>
+              <td>
+                <a href="javascript: void(0);" class="text-blue">
+                  {{data.location}}
+                </a>
+              </td>
+              <td class="text-right">
+                <button type="button" class="btn btn-primary mr-2">
+                  <i class="fe fe-plus-circle"></i>
+                </button>
+                <button type="button" class="btn btn-light">
+                  <i class="fe fe-settings text-blue"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table> -->
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum has been the industrys standard dummy text ever since the 1500s, when an
+            unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic
+            typesetting, remaining essentially unchanged.
+          </p>
+      </nz-tab>
+      <nz-tab nzTitle="Upgrade Settings">
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industrys standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type specimen book.
+          It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged.
+        </p>
+      </nz-tab>
+      <!-- <nz-tab [nzTitle]="dropdownTemplate">
+        <ng-template #dropdownTemplate>
+          <div class="d-inline-flex align-items-center">
+            <a nz-dropdown [nzDropdownMenu]="menu" nzTrigger="click" nzPlacement="bottomRight"
+              class="nav-link dropdown-toggle" href="javascript:;">
+              Dropdown
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item><a href="javascript:;">Action</a></li>
+                <li nz-menu-item><a href="javascript:;">Another action</a></li>
+                <li nz-menu-item><a href="javascript:;">Something else here</a></li>
+                <li nz-menu-divider></li>
+                <li nz-menu-item><a href="javascript:;">Separated link</a></li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
         </ng-template>
-    </ngb-tab>
-</ngb-tabset> -->
-
-<p>Contact Your Service Provider !!!</p>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum has been the industrys standard dummy text ever since the 1500s, when an
+          unknown printer took a galley of type and scrambled it to make a type specimen book.
+          It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged.
+        </p>
+      </nz-tab> -->
+    </nz-tabset>
+  </div>

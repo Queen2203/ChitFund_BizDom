@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 import { RouterOutlet } from '@angular/router'
 import { select, Store } from '@ngrx/store'
@@ -23,10 +23,7 @@ import { NzTabPosition } from 'ng-zorro-antd/tabs'
   animations: [slideFadeinUp, slideFadeinRight, zoomFadein, fadein],
 })
 export class SettingsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -3,7 +3,7 @@
 </div>
 <div >
 <div class="card" style="width: 50%; margin-left: 20%;">
-    <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small">
+    <nz-table #basicTable [nzData]="payment" class="kit__utils__table mb-4" nzSize="small">
         <thead>
           <tr>
             <th><strong>S.No</strong>
@@ -17,12 +17,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let pay of basicTable.data ; let i = index"> 
+            <td>{{i+1}}</td>
             <td>
-              1
-            </td>
-            <td>
-              Gpay
+              {{pay.description}}
             </td>
             <td>
               <input type="checkbox" name="" style="width: 20%;">

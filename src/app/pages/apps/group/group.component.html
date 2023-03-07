@@ -3,7 +3,7 @@
       <div class="cui__utils__heading">
         <strong>Groups List</strong>
       </div>
-      <div class="card">
+      <div class="card" style="width: 50%; margin-left: 20%;">
         <div class="card-header card-header-flex">
           <div class="d-flex flex-column justify-content-center mr-auto">
             <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
@@ -20,29 +20,35 @@
           </div>
         </div>
         <!-- Tax Grp Table -->
-        <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small" >
+        <nz-table #basicTable [nzData]="contact" class="kit__utils__table mb-4" nzSize="small" >
           <thead>
             <tr>
+              <th><strong>SI.No</strong>
+              </th>
               <th><strong>Group Name</strong>
               </th>
-              <!-- <th><strong>Head</strong>
-              </th> -->
-              <th><strong>Address</strong>
+              <th><strong>IsActive</strong>
+              </th>
+              <!-- <th><strong>Address</strong>
               </th>
               <th><strong>Phone Number</strong>
-              </th>
+              </th> -->
               <th><strong>Action</strong>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let tax of basicTable.data ">
+            <tr *ngFor="let tax of basicTable.data ; let i = index">
+              <td>{{i+1}}</td>
               <td>
                 <a class="btn btn-sm btn-light kit__utils__donut--primary" (click)="editTaxgroup(tax)">
-                  {{tax.description}}
+                  {{tax.name}}
                 </a>
               </td>
               <td>
+               <input type="checkbox" name="" id="">
+              </td>
+              <!-- <td>
                 {{tax.tax1}}
               </td>
               <td>
@@ -50,10 +56,12 @@
               </td>
               <td>
                 {{tax.tax3}}
-              </td>
+              </td> -->
               <td>
-                <span *ngIf="tax.isInclusive" class="text-success">YES</span>
-                <span *ngIf="!tax.isInclusive" class="text-danger">NO</span>
+                <a href="javascript: void(0);"
+                class="btn btn-sm btn-light pull-left" slot="actions" style="color: blue;">
+                <i class="fe fa-lg fe-edit"></i>
+               </a>
               </td>
             </tr>
           </tbody>
@@ -67,20 +75,20 @@
         <strong *ngIf="group.id > 0">Edit Group</strong>
       </h5>
       <div class="card-body">
-        <div class="form-group row">
+        <!-- <div class="form-group row">
           <label class="col-md-3 col-form-label" for="baseFullname"><strong>Group Name</strong></label>
           <div class="col-md-6">
             <input type="text" class="form-control" [(ngModel)]="group.description"
               placeholder="Enter Group Name" />
           </div>
-        </div>
+        </div> -->
         <div class="form-group row">
           <label class="col-md-3 col-form-label"> <strong>Name</strong> </label>
           <div class="col-md-6">
             <input type="text" class="form-control" [(ngModel)]="group.name" placeholder="Enter Name" />
           </div>
         </div>
-        <div class="form-group row">
+        <!-- <div class="form-group row">
           <label class="col-md-3 col-form-label"><strong>Address</strong></label>
           <div class="col-md-6">
             <input type="text" class="form-control" [(ngModel)]="group.address" placeholder="Enter Address" />
@@ -97,7 +105,7 @@
           <div class="col-md-6">
             <input type="number" class="form-control" [(ngModel)]="group.phoneNumber" placeholder="Enter Phone Number" />
           </div>
-        </div>
+        </div> -->
         <button type="button" class="btn btn-secondary px-5" (click)="back()">
           <i nz-icon nzType="left"></i>Back</button>
         <button type="button" class="btn btn-success px-5 pull-right">Save</button>

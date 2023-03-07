@@ -3,12 +3,14 @@
 </div>
 <div >
 <div class="card" style="width: 50%; margin-left: 20%;">
-    <nz-table #basicTable class="kit__utils__table mb-4" nzSize="small">
+    <nz-table #basicTable [nzData]="plans" class="kit__utils__table mb-4" nzSize="small">
         <thead>
           <tr>
             <th><strong>S.No</strong>
             </th>
             <th><strong>Plan Name</strong>
+            </th>
+            <th><strong>Amount</strong>
             </th>
             <th><strong>Is Active</strong>
             </th>
@@ -17,12 +19,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let plan of basicTable.data ; let i = index">
             <td>
-              1
+              {{i+1}}
             </td>
             <td>
-              1C
+              {{plan.name}}
+            </td>
+            <td>
+              {{plan.amount}}
             </td>
             <td>
               <input type="checkbox" name="" style="width: 20%;">
