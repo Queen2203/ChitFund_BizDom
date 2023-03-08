@@ -46,7 +46,7 @@ export class AssigntoComponent implements OnInit {
       pin: [null, [Validators.required]],
     })
     this.getplans()
-  }
+  } 
 
   plans: any
   getplans() {

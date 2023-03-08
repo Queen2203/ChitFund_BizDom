@@ -33,7 +33,7 @@ export class UserComponent implements OnInit {
       City: '',
       PhoneNumber: 0,
     }
-    this.getuser()
+    this.getuser() 
   }
   editTaxgroup(group) {
     this.group = group

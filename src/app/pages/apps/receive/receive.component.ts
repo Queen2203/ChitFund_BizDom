@@ -61,4 +61,4 @@ export class ReceiveComponent implements OnInit {
       console.log(this.conplans)
     })
   }
-}
+} 

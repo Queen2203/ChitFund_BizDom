@@ -12,4 +12,4 @@ export class PayComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+} 

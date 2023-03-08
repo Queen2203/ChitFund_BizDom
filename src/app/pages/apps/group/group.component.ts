@@ -53,7 +53,7 @@ export class GroupComponent implements OnInit {
       companyId: this.CompanyId,
       isInclusive: false,
     }
-  }
+  } 
   contact: any
   getgroup() {
     this.auth.Getparentcontact().subscribe(data => {

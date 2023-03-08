@@ -13,7 +13,7 @@ export class PlansComponent implements OnInit {
 
   ngOnInit(): void {
     this.getplans()
-  }
+  } 
   plans: any
   getplans() {
     this.auth.Getplans(this.CompanyId).subscribe(data => {

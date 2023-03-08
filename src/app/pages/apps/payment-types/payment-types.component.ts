@@ -17,7 +17,7 @@ export class PaymentTypesComponent implements OnInit {
   payment: any
   getpaymentTypes() {
     this.auth.GetpaymentTypes(this.CompanyId).subscribe(data => {
-      this.payment = data
+      this.payment = data 
       console.log(this.payment)
     })
   }

@@ -19,7 +19,7 @@ export class ContactsComponent implements OnInit {
     this.getcontact()
   }
 
-  clickpay() {
+  clickpay() { 
     this.isAdd = !this.isAdd
     this.isIndex = !this.isIndex
   }
