@@ -22,7 +22,10 @@
       </ng-template>
       <div class="col-md-3">
         <input id="contact" #contactautocomplete  type="text" class="form-control"
-          placeholder="Search Contact"  (keyup.enter)="clickrepaytable()"/>
+          placeholder="Search Contact"  />
+      </div>
+      <div>
+        <button type="submit" class="btn btn-success" (click)="clickrepaytable()">Submit</button>
       </div>
   </div>
 </div>
@@ -60,7 +63,7 @@
 
   <div class="cui__utils__heading" *ngIf="isTable">
     <strong>Customer Transaction Details</strong>
-    <button  class="btn btn-secondary px-5 pull-right" (click)="clickplanTable(1)">
+    <button  class="btn btn-secondary px-5 pull-right" (click)="back()">
         Back
     </button>
   </div> <br>

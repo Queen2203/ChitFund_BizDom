@@ -33,37 +33,70 @@
         <div class="form-group row">
           <label class="col-md-3 col-form-label" for="baseFullname"><strong>Name</strong></label>
           <div class="col-md-6">
-            <input type="text" class="form-control"
+            <input type="text" class="form-control" [(ngModel)]="group.name"
               placeholder="Enter Name" />
           </div>
         </div>
         <div class="form-group row">
           <label class="col-md-3 col-form-label"> <strong>Address</strong> </label>
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Enter Address" />
+            <input type="text" class="form-control" [(ngModel)]="group.address" placeholder="Enter Address" />
           </div>
         </div>
         <div class="form-group row">
           <label class="col-md-3 col-form-label"><strong>City</strong></label>
           <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Enter City" />
+            <input type="text" class="form-control" [(ngModel)]="group.city" placeholder="Enter City" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"><strong>PostalCode</strong></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" [(ngModel)]="group.postalCode"  placeholder="Enter Phone Number" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label"><strong>Country</strong></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" [(ngModel)]="group.country" placeholder="Enter City" />
           </div>
         </div>
         <div class="form-group row">
           <label class="col-md-3 col-form-label"><strong>Phone Number</strong></label>
           <div class="col-md-6">
-            <input type="number" class="form-control"  placeholder="Enter Phone Number" />
+            <input type="text" class="form-control" [(ngModel)]="group.phoneNumber"  placeholder="Enter Phone Number" />
           </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-3 col-form-label"><strong>Group Name</strong></label>
-            <div class="col-md-6">
-              <input type="text" class="form-control"  placeholder="Choose Group" />
-            </div>
+          <label class="col-md-3 col-form-label"><strong>Email</strong></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" [(ngModel)]="group.email"  placeholder="Choose Group" />
           </div>
+        </div>
+        <div class="form-group row">
+            <!-- <label class="col-md-3 col-form-label"><strong>Group Name</strong></label>
+            <div class="col-md-6">
+              <input type="text" class="form-control" [(ngModel)]="group.GroupName"  placeholder="Choose Group" />
+            </div> -->
+            <label class="col-md-3 col-form-label" for="baseFullname"><strong>GroupName</strong>
+              <span style="color: red;">*</span></label>
+            <ng-template class="w-100" #ct let-c="result" let-t="term">
+              <ngb-highlight [result]="c.name" [term]="t"></ngb-highlight>
+            </ng-template>
+            <div class="col-md-3">
+              <!-- <input #location contactautocomplete #instance="ngbTypeahead" type="text" class="form-control"
+                placeholder="Search Location" [ngbTypeahead]="searchlocation" [inputFormatter]="formatterlocation"
+                [resultTemplate]="ct" (selectItem)="selectedlocation($event.item)" /> -->
+                <select class="form-control" [(ngModel)]="group.parentcontactId" (ngModelChange)="getcontactid()">
+                  <option value=null>Select Contact</option>
+                  <option *ngFor="let pcatt of groupdata" value="{{pcatt.id}}">{{pcatt.name}}</option>
+                </select>
+                
+            </div>
+        </div>
         <button type="button" class="btn btn-secondary px-5" (click)="clickpay(1)">
           <i nz-icon nzType="left"></i>Back</button>
-        <button type="button" class="btn btn-success px-5 pull-right">Save</button>
+        <button type="button" class="btn btn-success px-5 pull-right" (click)="addcontact()">Save</button>
       </div>
 </div>
 
@@ -132,7 +165,7 @@
                 {{con.groupName}}
               </td>
               <td>
-                <a href="javascript: void(0);"
+                <a href="javascript: void(0);" (click)="clickedit(con)"
                 class="btn btn-sm btn-light pull-left" slot="actions" style="color: blue;">
                 <i class="fe fa-lg fe-edit"></i>
                </a>
@@ -141,4 +174,79 @@
           </tbody>
         </nz-table>
       </div>
+</div>
+
+<div class="card" *ngIf="isEdit">
+  <h5 class="ml-3 mt-3">
+      <strong >Edit Contact</strong>
+    </h5>
+  <div class="card-body">
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label" for="baseFullname"><strong>Name</strong></label>
+        <div class="col-md-6">
+          <input type="text" class="form-control" [(ngModel)]="group.name"
+            placeholder="Enter Name" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label"> <strong>Address</strong> </label>
+        <div class="col-md-6">
+          <input type="text" class="form-control" [(ngModel)]="group.address" placeholder="Enter Address" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label"><strong>City</strong></label>
+        <div class="col-md-6">
+          <input type="text" class="form-control" [(ngModel)]="group.city" placeholder="Enter City" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label"><strong>PostalCode</strong></label>
+        <div class="col-md-6">
+          <input type="text" class="form-control" [(ngModel)]="group.postalCode"  placeholder="Enter Phone Number" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label"><strong>Country</strong></label>
+        <div class="col-md-6">
+          <input type="text" class="form-control" [(ngModel)]="group.country" placeholder="Enter City" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label"><strong>Phone Number</strong></label>
+        <div class="col-md-6">
+          <input type="text" class="form-control" [(ngModel)]="group.phoneNumber"  placeholder="Enter Phone Number" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 col-form-label"><strong>Email</strong></label>
+        <div class="col-md-6">
+          <input type="text" class="form-control" [(ngModel)]="group.email"  placeholder="Choose Group" />
+        </div>
+      </div>
+      <div class="form-group row">
+          <!-- <label class="col-md-3 col-form-label"><strong>Group Name</strong></label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" [(ngModel)]="group.GroupName"  placeholder="Choose Group" />
+          </div> -->
+          <label class="col-md-3 col-form-label" for="baseFullname"><strong>GroupName</strong>
+            <span style="color: red;">*</span></label>
+          <ng-template class="w-100" #ct let-c="result" let-t="term">
+            <ngb-highlight [result]="c.name" [term]="t"></ngb-highlight>
+          </ng-template>
+          <div class="col-md-3">
+            <!-- <input #location contactautocomplete #instance="ngbTypeahead" type="text" class="form-control"
+              placeholder="Search Location" [ngbTypeahead]="searchlocation" [inputFormatter]="formatterlocation"
+              [resultTemplate]="ct" (selectItem)="selectedlocation($event.item)" /> -->
+              <select class="form-control" [(ngModel)]="group.parentcontactId" (ngModelChange)="getcontactid()">
+                <option value=null>Select Contact</option>
+                <option *ngFor="let pcatt of groupdata" value="{{pcatt.id}}">{{pcatt.name}}</option>
+              </select>
+              
+          </div>
+      </div>
+      <button type="button" class="btn btn-secondary px-5" (click)="clickedit(1)">
+        <i nz-icon nzType="left"></i>Back</button>
+      <button type="button" class="btn btn-success px-5 pull-right" (click)="addcontact()">Save</button>
+    </div>
 </div>

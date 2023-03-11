@@ -30,7 +30,7 @@ export class ReceiveComponent implements OnInit {
   }
   back() {
     this.isReceive = !this.isReceive
-    this.isReceivetable = !this.isReceivetable
+    this.isReceivetable = this.isReceivetable
     this.isTable = !this.isTable
   }
   // addamount(){

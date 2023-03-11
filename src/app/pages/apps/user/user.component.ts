@@ -15,11 +15,26 @@ export class UserComponent implements OnInit {
   submitted: boolean = false
   group: any = {
     id: 0,
-    groupname: '',
     name: '',
+    role: '',
+    phoneNumber: '',
+    email: '',
     address: '',
     city: '',
-    phoneNumber: 0,
+    postalCode: '',
+    country: ''
+  }
+  userdata: any = {
+    Id: 0,
+    Name: '',
+    Role: '',
+    PhoneNumber: '',
+    Email: '',
+    Address: '',
+    City: '',
+    PostalCode: '',
+    Country: '',
+    CompanyId: 0
   }
 
   constructor(private auth: AuthService) {}
@@ -27,15 +42,20 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.group = {
       id: 0,
-      groupname: '',
-      Name: '',
-      Address: '',
-      City: '',
-      PhoneNumber: 0,
+      name: '',
+      role: '',
+      phoneNumber: '',
+      email: '',
+      address: '',
+      city: '',
+      postalCode: '',
+      country: ''
     }
     this.getuser() 
+    // this.Adduser()
   }
   editTaxgroup(group) {
+    console.log(group)
     this.group = group
     this.show = !this.show
   }
@@ -45,12 +65,14 @@ export class UserComponent implements OnInit {
     this.show = !this.show
     this.group = {
       id: 0,
-      description: '',
-      tax1: 0,
-      tax2: 0,
-      tax3: 0,
-      companyId: this.CompanyId,
-      isInclusive: false,
+      name: '',
+      role: '',
+      phoneNumber: '',
+      email: '',
+      address: '',
+      city: '',
+      postalCode: '',
+      country: ''
     }
   }
 
@@ -61,4 +83,68 @@ export class UserComponent implements OnInit {
       console.log(this.user)
     })
   }
+  userss: any
+  Adduser(){
+      if (this.group.id == 0) {
+        this.userdata.Id = this.group.id
+        this.userdata.Name = this.group.name
+        this.userdata.Role = this.group.role
+        this.userdata.PhoneNumber = this.group.phoneNumber
+        this.userdata.Email = this.group.email
+        this.userdata.Address = this.group.address
+        this.userdata.City = this.group.city
+        this.userdata.PostalCode =this.group.postalCode
+        this.userdata.Country = this.group.country
+        this.userdata.CompanyId = this.CompanyId
+        console.log(this.userdata)
+        this.auth.addusers(this.userdata).subscribe(data =>{
+          this.userss = data
+          console.log("Data Added Successfully")
+          this.getuser()
+        this.group = {
+          id: 0,
+          name: '',
+          role: '',
+          phoneNumber: '',
+          email: '',
+          address: '',
+          city: '',
+          postalCode: '',
+          country: ''
+        }
+        })       
+        this.show = !this.show
+      }
+      else{
+        this.userdata.Id = this.group.id
+        this.userdata.Name = this.group.name
+        this.userdata.Role = this.group.role
+        this.userdata.PhoneNumber = this.group.phoneNumber
+        this.userdata.Email = this.group.email
+        this.userdata.Address = this.group.address
+        this.userdata.City = this.group.city
+        this.userdata.PostalCode =this.group.postalCode
+        this.userdata.Country = this.group.country
+        this.userdata.CompanyId = this.CompanyId
+        console.log(this.userdata)
+        this.auth.updateusers(this.userdata).subscribe(data =>{
+          this.userss = data
+          console.log("Data Updated Successfully")
+          this.getuser()
+          this.group = {
+            id: 0,
+            name: '',
+            role: '',
+            phoneNumber: '',
+            email: '',
+            address: '',
+            city: '',
+            postalCode: '',
+            country: ''
+          }
+        })
+        this.show = !this.show
+      }
+    } 
 }
+ 
